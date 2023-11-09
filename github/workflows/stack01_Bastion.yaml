@@ -22,7 +22,7 @@ permissions:
 jobs:
   
   stack01_Bastion:
-    uses: ./.github/workflows/action_runner.yaml
+    uses: ./github/workflows/action_runner.yaml
 
     # ---------------------------------------------
     # Source Provider Details
