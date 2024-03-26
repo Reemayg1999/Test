@@ -1,0 +1,71 @@
+title: Object Storage Terraform Input Variables
+description: Object Storage Variables
+schemaVersion: 1.1.0
+version: "24082022"
+
+#####################################
+
+# Variable Groupings
+
+#####################################
+
+groupings:
+
+  - title: "Object Storage Configuration"
+    variables:
+      - ${bucket_name}
+      - ${bucket_storage_tier}
+      - ${bucket_access_type}
+      - ${bucket_versioning}
+      - ${auto_tiering}
+      - ${object_event_enabled}
+
+  - title: "Select the target compartment to create the resources"
+    variables:
+      - ${tenancy_ocid}
+      - ${region}
+      - ${compartment_id_in_subtree}
+      - ${compartment_name}
+      - ${project_tag}      
+
+variables:
+
+#####################################
+# Common Variables
+#####################################
+
+  compartment_name:
+    type: string
+    default: ""
+    title: "Target Compartment Name"
+    description: "Target Compartment Name"
+    visible: true
+
+  compartment_id_in_subtree:
+    type: bool
+    title: "Compartment ID in Subtree"
+    default: "true"
+    description: "Compartment ID in Subtree"
+
+  tenancy_ocid:
+    visible: false
+    title: Tenancy OCID
+    description: Tenancy OCID
+
+  region:
+    visible: true
+    title: Region
+    description: Region
+
+
+  project_tag:
+    type: oci:identity:tag:value
+    title: Attach Tags
+    description: Attach the Tags
+    visible: true
+    required: false
+
+#####################################
+# Object Storage Variables
+#####################################
+
